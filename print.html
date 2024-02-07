@@ -287,7 +287,7 @@ This could be for any number of reasons, but the most common reason is for the a
 <li><a href="notes-ramblings/howto/pod-multihome.html#app-specific-configuration-home-assistant">App-specific configuration: Home Assistant</a></li>
 </ul>
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
-<p>For a Kubernetes cluster to be able to add additional network interfaces to Pods (this is also known as &quot;multi-homing&quot;) the <a href="https://github.com/k8snetworkplumbingwg/multus-cni">Multus CNI</a> needs to be installed in your cluster.</p>
+<p>For a Kubernetes cluster to be able to add additional network interfaces to Pods (this is also known as "multi-homing") the <a href="https://github.com/k8snetworkplumbingwg/multus-cni">Multus CNI</a> needs to be installed in your cluster.</p>
 <div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
@@ -321,9 +321,9 @@ This could be for any number of reasons, but the most common reason is for the a
 <p><code>k8s.v1.cni.cncf.io/networks: macvlan-static-iot-hass</code></p>
 <h2 id="app-specific-configuration-home-assistant"><a class="header" href="#app-specific-configuration-home-assistant">App-specific configuration: Home Assistant</a></h2>
 <p>In order for Home Assistant to actually use the additional network interface you will need to explicitly enable it instead of relying on automatic network detection.
-To do so, navigate to <code>Settings &gt;&gt; System &gt;&gt; Network</code> (this setting is only available to Home Assistant users that have &quot;Advanced mode&quot; enabled in their user profile) and place a checkmark next to the adapters that you wish to use with Home Assistant integrations.</p>
+To do so, navigate to <code>Settings &gt;&gt; System &gt;&gt; Network</code> (this setting is only available to Home Assistant users that have "Advanced mode" enabled in their user profile) and place a checkmark next to the adapters that you wish to use with Home Assistant integrations.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="run-a-service-with-both-tcp-and-udp"><a class="header" href="#run-a-service-with-both-tcp-and-udp">Run a Service with both TCP and UDP</a></h1>
-<p>One example where it is really nice having a single unified Service expose all the ports instead of several &quot;single-purpose&quot; ones is the Unifi Controller: <a href="https://github.com/bjw-s/home-ops/blob/main/kubernetes/main/apps/network/unifi/app/helmrelease.yaml">Helm values</a>.</p>
+<p>One example where it is really nice having a single unified Service expose all the ports instead of several "single-purpose" ones is the Unifi Controller: <a href="https://github.com/bjw-s/home-ops/blob/main/kubernetes/main/apps/network/unifi/app/helmrelease.yaml">Helm values</a>.</p>
 <p>Up until Kubernetes version 1.26 it was (by default) not possible to have a single Service expose <strong>both</strong> TCP <em>and</em> UDP protocols.</p>
 <h2 id="prerequisites-1"><a class="header" href="#prerequisites-1">Prerequisites</a></h2>
 <p>Since Kubernetes version 1.26 the <code>MixedProtocolLBService</code> has graduated to GA status, and no special flags should be required.

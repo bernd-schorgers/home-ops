@@ -160,7 +160,7 @@ This could be for any number of reasons, but the most common reason is for the a
 <li><a href="#app-specific-configuration-home-assistant">App-specific configuration: Home Assistant</a></li>
 </ul>
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
-<p>For a Kubernetes cluster to be able to add additional network interfaces to Pods (this is also known as &quot;multi-homing&quot;) the <a href="https://github.com/k8snetworkplumbingwg/multus-cni">Multus CNI</a> needs to be installed in your cluster.</p>
+<p>For a Kubernetes cluster to be able to add additional network interfaces to Pods (this is also known as "multi-homing") the <a href="https://github.com/k8snetworkplumbingwg/multus-cni">Multus CNI</a> needs to be installed in your cluster.</p>
 <div id="admonition-note" class="admonition admonish-note">
 <div class="admonition-title">
 <p>Note</p>
@@ -194,7 +194,7 @@ This could be for any number of reasons, but the most common reason is for the a
 <p><code>k8s.v1.cni.cncf.io/networks: macvlan-static-iot-hass</code></p>
 <h2 id="app-specific-configuration-home-assistant"><a class="header" href="#app-specific-configuration-home-assistant">App-specific configuration: Home Assistant</a></h2>
 <p>In order for Home Assistant to actually use the additional network interface you will need to explicitly enable it instead of relying on automatic network detection.
-To do so, navigate to <code>Settings &gt;&gt; System &gt;&gt; Network</code> (this setting is only available to Home Assistant users that have &quot;Advanced mode&quot; enabled in their user profile) and place a checkmark next to the adapters that you wish to use with Home Assistant integrations.</p>
+To do so, navigate to <code>Settings &gt;&gt; System &gt;&gt; Network</code> (this setting is only available to Home Assistant users that have "Advanced mode" enabled in their user profile) and place a checkmark next to the adapters that you wish to use with Home Assistant integrations.</p>
 
                     </main>
 

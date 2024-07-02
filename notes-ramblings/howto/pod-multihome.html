@@ -161,10 +161,12 @@ This could be for any number of reasons, but the most common reason is for the a
 </ul>
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
 <p>For a Kubernetes cluster to be able to add additional network interfaces to Pods (this is also known as "multi-homing") the <a href="https://github.com/k8snetworkplumbingwg/multus-cni">Multus CNI</a> needs to be installed in your cluster.</p>
-<div id="admonition-note" class="admonition admonish-note">
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
+<div id="admonition-note-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="#admonition-note"></a></p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
 </div>
 <div>
 <p>I use the Helm chart provided by <a href="https://github.com/angelnu/helm-charts/tree/main/charts/apps/multus">@angelnu</a> to install Multus. The reason for using this over the <a href="https://github.com/k8snetworkplumbingwg/multus-cni/blob/master/deployments/multus-daemonset.yml">official deployment method</a> is that it has better support for upgrade/update scenarios.</p>
@@ -172,10 +174,12 @@ This could be for any number of reasons, but the most common reason is for the a
 </div>
 <h2 id="nic-configuration"><a class="header" href="#nic-configuration">NIC configuration</a></h2>
 <p>Make sure that the Kubernetes node has a network interface that is connected to the VLAN you wish to connect to.</p>
-<div id="admonition-note-1" class="admonition admonish-note">
+<div id="admonition-note-1" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-1-title">
 <div class="admonition-title">
+<div id="admonition-note-1-title">
 <p>Note</p>
-<p><a class="admonition-anchor-link" href="#admonition-note-1"></a></p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-1"></a>
 </div>
 <div>
 <p><a href="../../overview/hardware.html">My nodes</a> only have a single NIC, so I have <a href="https://github.com/bjw-s/home-ops/blob/main/infrastructure/talos/main/talconfig.yaml">set them up</a> so their main interface gets it's IP address over DHCP and a virtual interface connecting to the VLAN. How to do this will depend on your operating system.</p>

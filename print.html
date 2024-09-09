@@ -119,7 +119,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/bjw-s/home-ops" title="Git repository" aria-label="Git repository">
+                        <a href="https://github.com/bjw-s-labs/home-ops" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
@@ -168,17 +168,17 @@ They may or may not work for you.</p>
 <h2 id="my-home-operations-repository"><a class="header" href="#my-home-operations-repository">My Home Operations repository</a></h2>
 <p><em>... managed by Flux, Renovate and GitHub Actions</em> 🤖</p>
 <p><a href="https://discord.gg/home-operations"><img src="https://img.shields.io/discord/673534664354430999?style=for-the-badge&amp;label&amp;logo=discord&amp;logoColor=white&amp;color=blue" alt="Discord" /></a> 
-<a href="https://github.com/bjw-s/home-ops/actions/workflows/schedule-renovate.yaml"><img src="https://img.shields.io/github/actions/workflow/status/bjw-s/.github/schedule-renovate.yaml?branch=main&amp;label=&amp;logo=renovatebot&amp;style=for-the-badge&amp;color=blue" alt="Renovate" /></a></p>
+<a href="https://github.com/bjw-s-labs/home-ops/actions/workflows/schedule-renovate.yaml"><img src="https://img.shields.io/github/actions/workflow/status/bjw-s/.github/schedule-renovate.yaml?branch=main&amp;label=&amp;logo=renovatebot&amp;style=for-the-badge&amp;color=blue" alt="Renovate" /></a></p>
 <p>Main k8s cluster stats:</p>
 <p><a href="https://www.talos.dev/"><img src="https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbjw-s%2Fhome-ops%2Fmain%2Fkubernetes%2Fmain%2Fbootstrap%2Ftalos%2Ftalconfig.yaml&amp;query=%24.kubernetesVersion&amp;flat-square&amp;logo=kubernetes&amp;logoColor=white&amp;label=k8s" alt="Kubernetes" />
 </a> 
 <a href="https://www.talos.dev/"><img src="https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbjw-s%2Fhome-ops%2Fmain%2Fkubernetes%2Fmain%2Fbootstrap%2Ftalos%2Ftalconfig.yaml&amp;query=%24.talosVersion&amp;flat-square&amp;logo=kubernetes&amp;logoColor=white&amp;color=orange&amp;label=talos" alt="Talos" />
 </a> 
-<a href="https://github.com/kashalls/kromgo/"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.bjw-s.dev%2Fquery%3Fformat%3Dendpoint%26metric%3Dcluster_age_days&amp;style=flat-square&amp;label=Age" alt="Age-Days" /></a> 
-<a href="https://github.com/kashalls/kromgo/"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.bjw-s.dev%2Fquery%3Fformat%3Dendpoint%26metric%3Dcluster_node_count&amp;style=flat-square&amp;label=Nodes" alt="Node-Count" /></a> 
-<a href="https://github.com/kashalls/kromgo/"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.bjw-s.dev%2Fquery%3Fformat%3Dendpoint%26metric%3Dcluster_pod_count&amp;style=flat-square&amp;label=Pods" alt="Pod-Count" /></a> 
-<a href="https://github.com/kashalls/kromgo/"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.bjw-s.dev%2Fquery%3Fformat%3Dendpoint%26metric%3Dcluster_cpu_usage&amp;style=flat-square&amp;label=CPU" alt="CPU-Usage" /></a> 
-<a href="https://github.com/kashalls/kromgo/"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.bjw-s.dev%2Fquery%3Fformat%3Dendpoint%26metric%3Dcluster_memory_usage&amp;style=flat-square&amp;label=Memory" alt="Memory-Usage" /></a> </p>
+<a href="https://github.com/kashalls/kromgo/"><img src="https://kromgo.bjw-s.dev/cluster_age_days?format=badge" alt="Age-Days" /></a> 
+<a href="https://github.com/kashalls/kromgo/"><img src="https://kromgo.bjw-s.dev/cluster_node_count?format=badge" alt="Node-Count" /></a> 
+<a href="https://github.com/kashalls/kromgo/"><img src="https://kromgo.bjw-s.dev/cluster_pod_count?format=badge" alt="Pod-Count" /></a> 
+<a href="https://github.com/kashalls/kromgo/"><img src="https://kromgo.bjw-s.dev/cluster_cpu_usage?format=badge" alt="CPU-Usage" /></a> 
+<a href="https://github.com/kashalls/kromgo/"><img src="https://kromgo.bjw-s.dev/cluster_memory_usage?format=badge" alt="Memory-Usage" /></a> </p>
 </div>
 <br><br>
 <p>👋 Welcome to my Home Operations repository. This is a mono repository for my home infrastructure and Kubernetes cluster. I try to adhere to Infrastructure as Code (IaC) and GitOps practices using the tools like <a href="https://www.ansible.com/">Ansible</a>, <a href="https://www.terraform.io/">Terraform</a>, <a href="https://kubernetes.io/">Kubernetes</a>, <a href="https://github.com/fluxcd/flux2">Flux</a>, <a href="https://github.com/renovatebot/renovate">Renovate</a> and <a href="https://github.com/features/actions">GitHub Actions</a>.</p>
@@ -190,7 +190,7 @@ They may or may not work for you.</p>
 <p>Thanks to all the people who donate their time to the <a href="https://discord.gg/k8s-at-home">Kubernetes @Home</a> Discord community. A lot of inspiration for my cluster comes from the people that have shared their clusters using the <a href="https://github.com/topics/k8s-at-home">k8s-at-home</a> GitHub topic. Be sure to check out the <a href="https://nanne.dev/k8s-at-home-search/">Kubernetes @Home search</a> for ideas on how to deploy applications or get ideas on what you can deploy.</p>
 <hr />
 <h3 id="-license"><a class="header" href="#-license">🔏 License</a></h3>
-<p>See <a href="https://github.com/bjw-s/home-ops/blob/main/LICENSE">LICENSE</a></p>
+<p>See <a href="https://github.com/bjw-s-labs/home-ops/blob/main/LICENSE">LICENSE</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hardware"><a class="header" href="#hardware">Hardware</a></h1>
 <div class="table-wrapper"><table><thead><tr><th>Device</th><th>Count</th><th>OS Disk Size</th><th>Data Disk Size</th><th>Ram</th><th>Operating System</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>YCSD 6LAN i211 MiniPC i3 7100U</td><td>1</td><td>128GB mSATA</td><td>-</td><td>8GB</td><td><a href="http://vyos.net">VyOS</a></td><td>Router</td></tr>
@@ -216,7 +216,7 @@ They may or may not work for you.</p>
 <tr><td></td><td></td><td>Total: ~$10/m</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="kubernetes"><a class="header" href="#kubernetes">Kubernetes</a></h1>
-<p>My main cluster is <a href="http://talos.dev/">Talos</a> provisioned on bare-metal using the official <code>talosctl</code> CLI tool. I render my <a href="https://github.com/bjw-s/home-ops/tree/main/infrastructure/talos/main">Talos configuration</a> using the <a href="https://github.com/budimanjojo/talhelper">talhelper</a> CLI tool. This allows me to keep the Talos configuration as DRY as possible.</p>
+<p>My main cluster is <a href="http://talos.dev/">Talos</a> provisioned on bare-metal using the official <code>talosctl</code> CLI tool. I render my <a href="https://github.com/bjw-s-labs/home-ops/tree/main/infrastructure/talos/main">Talos configuration</a> using the <a href="https://github.com/budimanjojo/talhelper">talhelper</a> CLI tool. This allows me to keep the Talos configuration as DRY as possible.</p>
 <p>This is a semi hyper-converged cluster, workloads and block storage are sharing the same available resources on my nodes while I have a separate server for (NFS) file storage.</p>
 <h2 id="core-components"><a class="header" href="#core-components">Core Components</a></h2>
 <ul>
@@ -233,11 +233,11 @@ They may or may not work for you.</p>
 <li><a href="https://github.com/backube/volsync">volsync</a> and <a href="https://github.com/backube/snapscheduler">snapscheduler</a>: Backup and recovery of persistent volume claims.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gitops"><a class="header" href="#gitops">GitOps</a></h1>
-<p><a href="https://github.com/fluxcd/flux2">Flux</a> watches my <a href="https://github.com/bjw-s/home-ops/tree/main/kubernetes/">kubernetes</a> folder (see <a href="kubernetes/gitops.html#directory-structure">Directory structure</a>) and makes the changes to my cluster based on the YAML manifests.</p>
-<p>The way Flux works for me here is it will recursively search the <a href="https://github.com/bjw-s/home-ops/tree/main/kubernetes/main/apps">kubernetes/apps</a> folder until it finds the most top level <code>kustomization.yaml</code> per directory and then apply all the resources listed in it. That aforementioned <code>kustomization.yaml</code> will generally only have a namespace resource and one or many Flux kustomizations. Those Flux kustomizations will generally have a <code>HelmRelease</code> or other resources related to the application underneath it which will be applied.</p>
+<p><a href="https://github.com/fluxcd/flux2">Flux</a> watches my <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/">kubernetes</a> folder (see <a href="kubernetes/gitops.html#directory-structure">Directory structure</a>) and makes the changes to my cluster based on the YAML manifests.</p>
+<p>The way Flux works for me here is it will recursively search the <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/main/apps">kubernetes/apps</a> folder until it finds the most top level <code>kustomization.yaml</code> per directory and then apply all the resources listed in it. That aforementioned <code>kustomization.yaml</code> will generally only have a namespace resource and one or many Flux kustomizations. Those Flux kustomizations will generally have a <code>HelmRelease</code> or other resources related to the application underneath it which will be applied.</p>
 <p><a href="https://github.com/renovatebot/renovate">Renovate</a> watches my <strong>entire</strong> repository looking for dependency updates, when they are found a PR is automatically created. When PRs are merged <a href="https://github.com/fluxcd/flux2">Flux</a> applies the changes to my cluster.</p>
 <h2 id="directory-structure"><a class="header" href="#directory-structure">Directory structure</a></h2>
-<p>My home-ops repository contains the following directories under <a href="https://github.com/bjw-s/home-ops/tree/main/kubernetes/">kubernetes</a>.</p>
+<p>My home-ops repository contains the following directories under <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/">kubernetes</a>.</p>
 <pre><code class="language-sh">📁 kubernetes      # Kubernetes clusters defined as code
 ├─📁 main     # My main kubernetes cluster
 │ ├─📁 bootstrap   # Flux installation
@@ -269,7 +269,7 @@ GitRepository :: home-ops-kubernetes
 <p>Storage in my cluster is handled in a number of ways.
 The in-cluster storage is provided by a <a href="https://github.com/rook/rook">rook</a> Ceph cluster that is running on a number of my nodes.</p>
 <h2 id="rook-ceph-block-storage"><a class="header" href="#rook-ceph-block-storage">rook-ceph block storage</a></h2>
-<p>The bulk of my cluster storage relies on <a href="https://github.com/bjw-s/home-ops/tree/main/kubernetes/main/apps/rook-ceph/rook-ceph/cluster%5D">my <code>CephBlockPool</code></a>. This ensures that my data is replicated across my storage nodes.</p>
+<p>The bulk of my cluster storage relies on <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/main/apps/rook-ceph/rook-ceph/cluster%5D">my <code>CephBlockPool</code></a>. This ensures that my data is replicated across my storage nodes.</p>
 <h2 id="nfs-storage"><a class="header" href="#nfs-storage">NFS storage</a></h2>
 <p>Finally, I have my NAS that exposes several exports over NFS. Given how NFS is a very bad idea for storing application data (see for example <a href="https://github.com/Sonarr/Sonarr/issues/1886">this Github issue</a>) I only use it to store data at rest, such as my personal media files, Linux ISO's, backups, etc.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="backups"><a class="header" href="#backups">Backups</a></h1>
@@ -313,11 +313,11 @@ This could be for any number of reasons, but the most common reason is for the a
 <a class="admonition-anchor-link" href="notes-ramblings/howto/pod-multihome.html#admonition-note-1"></a>
 </div>
 <div>
-<p><a href="notes-ramblings/howto/../../overview/hardware.html">My nodes</a> only have a single NIC, so I have <a href="https://github.com/bjw-s/home-ops/blob/main/infrastructure/talos/main/talconfig.yaml">set them up</a> so their main interface gets it's IP address over DHCP and a virtual interface connecting to the VLAN. How to do this will depend on your operating system.</p>
+<p><a href="notes-ramblings/howto/../../overview/hardware.html">My nodes</a> only have a single NIC, so I have <a href="https://github.com/bjw-s-labs/home-ops/blob/main/infrastructure/talos/main/talconfig.yaml">set them up</a> so their main interface gets it's IP address over DHCP and a virtual interface connecting to the VLAN. How to do this will depend on your operating system.</p>
 </div>
 </div>
 <h2 id="multus-configuration"><a class="header" href="#multus-configuration">Multus Configuration</a></h2>
-<p>My Multus Helm configuration can be found <a href="https://github.com/bjw-s/home-ops/blob/main/kubernetes/main/apps/network/multus/app/helmrelease.yaml">here</a>.</p>
+<p>My Multus Helm configuration can be found <a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/main/apps/network/multus/app/helmrelease.yaml">here</a>.</p>
 <p>It is important to note that the paths of your CNI plugin binaries / config might differ depending on the Kubernetes distribution you are running. For my <a href="https://www.talos.dev">Talos</a> setup they need to be set to <code>/opt/cni/bin</code> and <code>etc/cni/net.d</code> respectively.</p>
 <h2 id="networkattachmentdefinition"><a class="header" href="#networkattachmentdefinition">NetworkAttachmentDefinition</a></h2>
 <p>Once the Multus CNI has been installed and configured you can use the <code>NetworkAttachmentDefinition</code> Custom Resource to define the virtual IP addresses that you want to hand out. These need to be free addresses within the VLAN subnet, so it's important to make sure that they do not overlap with your DHCP server range(s).</p>
@@ -325,13 +325,13 @@ This could be for any number of reasons, but the most common reason is for the a
 </code></pre>
 <p>Be sure to check out the <a href="https://github.com/k8snetworkplumbingwg/multus-cni/blob/master/docs/configuration.md">official documentation</a> for more information on how to configure the <code>spec.config</code> field.</p>
 <h2 id="pod-configuration"><a class="header" href="#pod-configuration">Pod configuration</a></h2>
-<p>Once the NetworkAttachmentDefinition has been loaded it is possible to use it within a Pod. This can be done by setting an annotation on the Pod that references it. Staying with the Home Assistant example (<a href="https://github.com/bjw-s/home-ops/blob/main/kubernetes/main/apps/home-automation/home-assistant/app/helmrelease.yaml">full Helm values</a>), this would be:</p>
+<p>Once the NetworkAttachmentDefinition has been loaded it is possible to use it within a Pod. This can be done by setting an annotation on the Pod that references it. Staying with the Home Assistant example (<a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/main/apps/home-automation/home-assistant/app/helmrelease.yaml">full Helm values</a>), this would be:</p>
 <p><code>k8s.v1.cni.cncf.io/networks: macvlan-static-iot-hass</code></p>
 <h2 id="app-specific-configuration-home-assistant"><a class="header" href="#app-specific-configuration-home-assistant">App-specific configuration: Home Assistant</a></h2>
 <p>In order for Home Assistant to actually use the additional network interface you will need to explicitly enable it instead of relying on automatic network detection.
 To do so, navigate to <code>Settings &gt;&gt; System &gt;&gt; Network</code> (this setting is only available to Home Assistant users that have "Advanced mode" enabled in their user profile) and place a checkmark next to the adapters that you wish to use with Home Assistant integrations.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="run-a-service-with-both-tcp-and-udp"><a class="header" href="#run-a-service-with-both-tcp-and-udp">Run a Service with both TCP and UDP</a></h1>
-<p>One example where it is really nice having a single unified Service expose all the ports instead of several "single-purpose" ones is the Unifi Controller: <a href="https://github.com/bjw-s/home-ops/blob/main/kubernetes/main/apps/network/unifi/app/helmrelease.yaml">Helm values</a>.</p>
+<p>One example where it is really nice having a single unified Service expose all the ports instead of several "single-purpose" ones is the Unifi Controller: <a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/main/apps/network/unifi/app/helmrelease.yaml">Helm values</a>.</p>
 <p>Up until Kubernetes version 1.26 it was (by default) not possible to have a single Service expose <strong>both</strong> TCP <em>and</em> UDP protocols.</p>
 <h2 id="prerequisites-1"><a class="header" href="#prerequisites-1">Prerequisites</a></h2>
 <p>Since Kubernetes version 1.26 the <code>MixedProtocolLBService</code> has graduated to GA status, and no special flags should be required.

@@ -118,7 +118,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/bjw-s/home-ops" title="Git repository" aria-label="Git repository">
+                        <a href="https://github.com/bjw-s-labs/home-ops" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
@@ -148,11 +148,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="gitops"><a class="header" href="#gitops">GitOps</a></h1>
-<p><a href="https://github.com/fluxcd/flux2">Flux</a> watches my <a href="https://github.com/bjw-s/home-ops/tree/main/kubernetes/">kubernetes</a> folder (see <a href="#directory-structure">Directory structure</a>) and makes the changes to my cluster based on the YAML manifests.</p>
-<p>The way Flux works for me here is it will recursively search the <a href="https://github.com/bjw-s/home-ops/tree/main/kubernetes/main/apps">kubernetes/apps</a> folder until it finds the most top level <code>kustomization.yaml</code> per directory and then apply all the resources listed in it. That aforementioned <code>kustomization.yaml</code> will generally only have a namespace resource and one or many Flux kustomizations. Those Flux kustomizations will generally have a <code>HelmRelease</code> or other resources related to the application underneath it which will be applied.</p>
+<p><a href="https://github.com/fluxcd/flux2">Flux</a> watches my <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/">kubernetes</a> folder (see <a href="#directory-structure">Directory structure</a>) and makes the changes to my cluster based on the YAML manifests.</p>
+<p>The way Flux works for me here is it will recursively search the <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/main/apps">kubernetes/apps</a> folder until it finds the most top level <code>kustomization.yaml</code> per directory and then apply all the resources listed in it. That aforementioned <code>kustomization.yaml</code> will generally only have a namespace resource and one or many Flux kustomizations. Those Flux kustomizations will generally have a <code>HelmRelease</code> or other resources related to the application underneath it which will be applied.</p>
 <p><a href="https://github.com/renovatebot/renovate">Renovate</a> watches my <strong>entire</strong> repository looking for dependency updates, when they are found a PR is automatically created. When PRs are merged <a href="https://github.com/fluxcd/flux2">Flux</a> applies the changes to my cluster.</p>
 <h2 id="directory-structure"><a class="header" href="#directory-structure">Directory structure</a></h2>
-<p>My home-ops repository contains the following directories under <a href="https://github.com/bjw-s/home-ops/tree/main/kubernetes/">kubernetes</a>.</p>
+<p>My home-ops repository contains the following directories under <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/">kubernetes</a>.</p>
 <pre><code class="language-sh">📁 kubernetes      # Kubernetes clusters defined as code
 ├─📁 main     # My main kubernetes cluster
 │ ├─📁 bootstrap   # Flux installation

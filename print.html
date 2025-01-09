@@ -248,7 +248,7 @@ They may or may not work for you.</p>
 <h2 id="flux-resource-layout"><a class="header" href="#flux-resource-layout">Flux resource layout</a></h2>
 <p>Below is a a high level look at the layout of how my directory structure with Flux works. In this brief example you are able to see that <code>authelia</code> will not be able to run until <code>glauth</code> and <code>cloudnative-pg</code> are running. It also shows that the <code>Cluster</code> custom resource depends on the <code>cloudnative-pg</code> Helm chart. This is needed because <code>cloudnative-pg</code> installs the <code>Cluster</code> custom resource definition in the Helm chart.</p>
 <pre><code class="language-python"># Key: &lt;kind&gt; :: &lt;metadata.name&gt;
-GitRepository :: home-ops-kubernetes
+GitRepository :: flux-system
     Kustomization :: cluster
         Kustomization :: cluster-apps
             Kustomization :: cluster-apps-authelia

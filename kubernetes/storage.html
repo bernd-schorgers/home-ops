@@ -151,7 +151,7 @@
 <p>Storage in my cluster is handled in a number of ways.
 The in-cluster storage is provided by a <a href="https://github.com/rook/rook">rook</a> Ceph cluster that is running on a number of my nodes.</p>
 <h2 id="rook-ceph-block-storage"><a class="header" href="#rook-ceph-block-storage">rook-ceph block storage</a></h2>
-<p>The bulk of my cluster storage relies on <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/main/apps/rook-ceph/rook-ceph/cluster%5D">my <code>CephBlockPool</code></a>. This ensures that my data is replicated across my storage nodes.</p>
+<p>The bulk of my cluster storage relies on <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/apps/rook-ceph/rook-ceph/cluster%5D">my <code>CephBlockPool</code></a>. This ensures that my data is replicated across my storage nodes.</p>
 <h2 id="nfs-storage"><a class="header" href="#nfs-storage">NFS storage</a></h2>
 <p>Finally, I have my NAS that exposes several exports over NFS. Given how NFS is a very bad idea for storing application data (see for example <a href="https://github.com/Sonarr/Sonarr/issues/1886">this Github issue</a>) I only use it to store data at rest, such as my personal media files, Linux ISO's, backups, etc.</p>
 

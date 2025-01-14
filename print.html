@@ -234,7 +234,7 @@ They may or may not work for you.</p>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gitops"><a class="header" href="#gitops">GitOps</a></h1>
 <p><a href="https://github.com/fluxcd/flux2">Flux</a> watches my <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/">kubernetes</a> folder (see <a href="kubernetes/gitops.html#directory-structure">Directory structure</a>) and makes the changes to my cluster based on the YAML manifests.</p>
-<p>The way Flux works for me here is it will recursively search the <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/main/apps">kubernetes/apps</a> folder until it finds the most top level <code>kustomization.yaml</code> per directory and then apply all the resources listed in it. That aforementioned <code>kustomization.yaml</code> will generally only have a namespace resource and one or many Flux kustomizations. Those Flux kustomizations will generally have a <code>HelmRelease</code> or other resources related to the application underneath it which will be applied.</p>
+<p>The way Flux works for me here is it will recursively search the <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/apps">kubernetes/apps</a> folder until it finds the most top level <code>kustomization.yaml</code> per directory and then apply all the resources listed in it. That aforementioned <code>kustomization.yaml</code> will generally only have a namespace resource and one or many Flux kustomizations. Those Flux kustomizations will generally have a <code>HelmRelease</code> or other resources related to the application underneath it which will be applied.</p>
 <p><a href="https://github.com/renovatebot/renovate">Renovate</a> watches my <strong>entire</strong> repository looking for dependency updates, when they are found a PR is automatically created. When PRs are merged <a href="https://github.com/fluxcd/flux2">Flux</a> applies the changes to my cluster.</p>
 <h2 id="directory-structure"><a class="header" href="#directory-structure">Directory structure</a></h2>
 <p>My home-ops repository contains the following directories under <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/">kubernetes</a>.</p>
@@ -269,7 +269,7 @@ GitRepository :: flux-system
 <p>Storage in my cluster is handled in a number of ways.
 The in-cluster storage is provided by a <a href="https://github.com/rook/rook">rook</a> Ceph cluster that is running on a number of my nodes.</p>
 <h2 id="rook-ceph-block-storage"><a class="header" href="#rook-ceph-block-storage">rook-ceph block storage</a></h2>
-<p>The bulk of my cluster storage relies on <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/main/apps/rook-ceph/rook-ceph/cluster%5D">my <code>CephBlockPool</code></a>. This ensures that my data is replicated across my storage nodes.</p>
+<p>The bulk of my cluster storage relies on <a href="https://github.com/bjw-s-labs/home-ops/tree/main/kubernetes/apps/rook-ceph/rook-ceph/cluster%5D">my <code>CephBlockPool</code></a>. This ensures that my data is replicated across my storage nodes.</p>
 <h2 id="nfs-storage"><a class="header" href="#nfs-storage">NFS storage</a></h2>
 <p>Finally, I have my NAS that exposes several exports over NFS. Given how NFS is a very bad idea for storing application data (see for example <a href="https://github.com/Sonarr/Sonarr/issues/1886">this Github issue</a>) I only use it to store data at rest, such as my personal media files, Linux ISO's, backups, etc.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="backups"><a class="header" href="#backups">Backups</a></h1>
@@ -292,6 +292,8 @@ This could be for any number of reasons, but the most common reason is for the a
 </ul>
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
 <p>For a Kubernetes cluster to be able to add additional network interfaces to Pods (this is also known as "multi-homing") the <a href="https://github.com/k8snetworkplumbingwg/multus-cni">Multus CNI</a> needs to be installed in your cluster.</p>
+<h2 id="nic-configuration"><a class="header" href="#nic-configuration">NIC configuration</a></h2>
+<p>Make sure that the Kubernetes node has a network interface that is connected to the VLAN you wish to connect to.</p>
 <div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -300,38 +302,25 @@ This could be for any number of reasons, but the most common reason is for the a
 <a class="admonition-anchor-link" href="notes-ramblings/howto/pod-multihome.html#admonition-note"></a>
 </div>
 <div>
-<p>I use the Helm chart provided by <a href="https://github.com/angelnu/helm-charts/tree/main/charts/apps/multus">@angelnu</a> to install Multus. The reason for using this over the <a href="https://github.com/k8snetworkplumbingwg/multus-cni/blob/master/deployments/multus-daemonset.yml">official deployment method</a> is that it has better support for upgrade/update scenarios.</p>
-</div>
-</div>
-<h2 id="nic-configuration"><a class="header" href="#nic-configuration">NIC configuration</a></h2>
-<p>Make sure that the Kubernetes node has a network interface that is connected to the VLAN you wish to connect to.</p>
-<div id="admonition-note-1" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-1-title">
-<div class="admonition-title">
-<div id="admonition-note-1-title">
-<p>Note</p>
-</div>
-<a class="admonition-anchor-link" href="notes-ramblings/howto/pod-multihome.html#admonition-note-1"></a>
-</div>
-<div>
 <p><a href="notes-ramblings/howto/../../overview/hardware.html">My nodes</a> only have a single NIC, so I have <a href="https://github.com/bjw-s-labs/home-ops/blob/main/infrastructure/talos/main/talconfig.yaml">set them up</a> so their main interface gets it's IP address over DHCP and a virtual interface connecting to the VLAN. How to do this will depend on your operating system.</p>
 </div>
 </div>
 <h2 id="multus-configuration"><a class="header" href="#multus-configuration">Multus Configuration</a></h2>
-<p>My Multus Helm configuration can be found <a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/main/apps/network/multus/app/helmrelease.yaml">here</a>.</p>
+<p>My Multus Helm configuration can be found <a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/apps/network/multus/app/helmrelease.yaml">here</a>.</p>
 <p>It is important to note that the paths of your CNI plugin binaries / config might differ depending on the Kubernetes distribution you are running. For my <a href="https://www.talos.dev">Talos</a> setup they need to be set to <code>/opt/cni/bin</code> and <code>etc/cni/net.d</code> respectively.</p>
 <h2 id="networkattachmentdefinition"><a class="header" href="#networkattachmentdefinition">NetworkAttachmentDefinition</a></h2>
 <p>Once the Multus CNI has been installed and configured you can use the <code>NetworkAttachmentDefinition</code> Custom Resource to define the virtual IP addresses that you want to hand out. These need to be free addresses within the VLAN subnet, so it's important to make sure that they do not overlap with your DHCP server range(s).</p>
-<pre><code class="language-yaml">{{ #include ../../../../kubernetes/main/apps/home-automation/home-assistant/app/networkattachmentdefinition.yaml }}
+<pre><code class="language-yaml">{{ #include ../../../../kubernetes/apps/home-automation/home-assistant/app/networkattachmentdefinition.yaml }}
 </code></pre>
 <p>Be sure to check out the <a href="https://github.com/k8snetworkplumbingwg/multus-cni/blob/master/docs/configuration.md">official documentation</a> for more information on how to configure the <code>spec.config</code> field.</p>
 <h2 id="pod-configuration"><a class="header" href="#pod-configuration">Pod configuration</a></h2>
-<p>Once the NetworkAttachmentDefinition has been loaded it is possible to use it within a Pod. This can be done by setting an annotation on the Pod that references it. Staying with the Home Assistant example (<a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/main/apps/home-automation/home-assistant/app/helmrelease.yaml">full Helm values</a>), this would be:</p>
+<p>Once the NetworkAttachmentDefinition has been loaded it is possible to use it within a Pod. This can be done by setting an annotation on the Pod that references it. Staying with the Home Assistant example (<a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/apps/home-automation/home-assistant/app/helmrelease.yaml">full Helm values</a>), this would be:</p>
 <p><code>k8s.v1.cni.cncf.io/networks: macvlan-static-iot-hass</code></p>
 <h2 id="app-specific-configuration-home-assistant"><a class="header" href="#app-specific-configuration-home-assistant">App-specific configuration: Home Assistant</a></h2>
 <p>In order for Home Assistant to actually use the additional network interface you will need to explicitly enable it instead of relying on automatic network detection.
 To do so, navigate to <code>Settings &gt;&gt; System &gt;&gt; Network</code> (this setting is only available to Home Assistant users that have "Advanced mode" enabled in their user profile) and place a checkmark next to the adapters that you wish to use with Home Assistant integrations.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="run-a-service-with-both-tcp-and-udp"><a class="header" href="#run-a-service-with-both-tcp-and-udp">Run a Service with both TCP and UDP</a></h1>
-<p>One example where it is really nice having a single unified Service expose all the ports instead of several "single-purpose" ones is the Unifi Controller: <a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/main/apps/network/unifi/app/helmrelease.yaml">Helm values</a>.</p>
+<p>One example where it is really nice having a single unified Service expose all the ports instead of several "single-purpose" ones is the Unifi Controller: <a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/apps/network/unifi/app/helmrelease.yaml">Helm values</a>.</p>
 <p>Up until Kubernetes version 1.26 it was (by default) not possible to have a single Service expose <strong>both</strong> TCP <em>and</em> UDP protocols.</p>
 <h2 id="prerequisites-1"><a class="header" href="#prerequisites-1">Prerequisites</a></h2>
 <p>Since Kubernetes version 1.26 the <code>MixedProtocolLBService</code> has graduated to GA status, and no special flags should be required.

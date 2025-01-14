@@ -148,7 +148,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="run-a-service-with-both-tcp-and-udp"><a class="header" href="#run-a-service-with-both-tcp-and-udp">Run a Service with both TCP and UDP</a></h1>
-<p>One example where it is really nice having a single unified Service expose all the ports instead of several "single-purpose" ones is the Unifi Controller: <a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/main/apps/network/unifi/app/helmrelease.yaml">Helm values</a>.</p>
+<p>One example where it is really nice having a single unified Service expose all the ports instead of several "single-purpose" ones is the Unifi Controller: <a href="https://github.com/bjw-s-labs/home-ops/blob/main/kubernetes/apps/network/unifi/app/helmrelease.yaml">Helm values</a>.</p>
 <p>Up until Kubernetes version 1.26 it was (by default) not possible to have a single Service expose <strong>both</strong> TCP <em>and</em> UDP protocols.</p>
 <h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
 <p>Since Kubernetes version 1.26 the <code>MixedProtocolLBService</code> has graduated to GA status, and no special flags should be required.
